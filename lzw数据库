@@ -1,0 +1,91 @@
+
+drop database db_lzw;
+create database if not exists db_lzw default character set utf8mb4 collate utf8mb4_bin;
+create database if not exists db_lzw default character set utf8mb4;
+use db_lzw;
+drop table tb_users;
+create table tb_users(
+usrId int auto_increment,
+usrName varchar(64) not null,
+passwd varchar(80),
+isAdmin boolean,
+remark varchar(200), 
+primary key(usrId)
+)default charset=utf8mb4;
+
+create table tb_supplier(
+spId int unsigned auto_increment,
+spName varchar(200),
+contactName varchar(32),
+tel1 varchar(20),
+tel2 varchar(20),
+address varchar(200),
+remark varchar(200),
+primary key(spId)
+)default charset=utf8mb4;
+
+drop table tb_supplier;
+
+
+create table tb_custom(
+customId int auto_increment primary key,
+customName varchar(200),
+contactName varchar(32),
+tel1 varchar(20),
+tel2 varchar(20),
+address varchar(200),
+remark varchar(200)
+)default charset=utf8mb4;
+
+create table tb_category(
+categoryId int auto_increment primary key,
+categoryName varchar(80),
+remark varchar(200)
+)default charset=utf8mb4;
+
+create table tb_commodity(
+commodityId int auto_increment primary key,
+commodityName varchar(200),
+categoryId int,
+quantity int,
+remark varchar(200),
+foreign key(categoryId) references tb_category(categoryId) 
+ON DELETE RESTRICT ON UPDATE CASCADE
+)default charset=utf8mb4;
+
+create table tb_purchase(
+purId int auto_increment primary key,
+commodityId int,
+spId int,
+price float,
+quantity int,
+purDate datetime,
+remark varchar(200),
+foreign key(commodityId) references tb_commodity(commodityId) 
+ON DELETE RESTRICT ON UPDATE CASCADE
+)default charset=utf8mb4;
+
+
+create table tb_sale(
+saleId int auto_increment primary key,
+commodityId int,
+customId int,
+price float,
+quantity int,
+saleDate datetime,
+remark varchar(200),
+foreign key(commodityId) references tb_commodity(commodityId)
+ON DELETE RESTRICT ON UPDATE CASCADE
+)default charset=utf8mb4;
+
+alter table tb_sale
+add constraint saletocustom
+foreign key(customId)
+references tb_custom(customId)
+on delete restrict
+on update cascade;
+
+drop table tb_commodity;
+drop table tb_purchase;
+drop table tb_sale;
+drop table tb_custom;
