@@ -1,0 +1,66 @@
+use db_lzw;
+#users
+insert into tb_users(usrName,passwd,isAdmin,remark) values('admin','admin', true,'管理员');
+insert into tb_users(usrName,passwd,isAdmin,remark) values('guest','123456', false, '员工');
+
+#tb_supplier
+insert into tb_supplier(spName, contactName,tel1, tel2, address, remark) values('供应商0','李0四','15088888888','0755-3333333','火星0号','0星级供应商');
+insert into tb_supplier(spName, contactName, tel1, tel2, address, remark) values('供应商1','李1四','15088888888','0755-3333333','火星1号','1星级供应商');
+insert into tb_supplier(spName, contactName, tel1, tel2, address, remark) values('供应商2','李2四','15088888888','0755-3333333','火星2号','2星级供应商');
+insert into tb_supplier(spName, contactName, tel1, tel2, address, remark) values('供应商3','李3四','15088888888','0755-3333333','火星3号','3星级供应商');
+insert into tb_supplier(spName, contactName, tel1, tel2, address, remark) values('供应商4','李4四','15088888888','0755-3333333','火星4号','4星级供应商');
+insert into tb_supplier(spName, contactName, tel1, tel2, address, remark) values('供应商5','李5四','15088888888','0755-3333333','火星5号','5星级供应商');
+insert into tb_supplier(spName, contactName, tel1, tel2, address, remark) values('供应商6','李6四','15088888888','0755-3333333','火星6号','6星级供应商');
+insert into tb_supplier(spName, contactName, tel1, tel2, address, remark) values('供应商7','李7四','15088888888','0755-3333333','火星7号','7星级供应商');
+insert into tb_supplier(spName, contactName, tel1, tel2, address, remark) values('供应商8','李8四','15088888888','0755-3333333','火星8号','8星级供应商');
+insert into tb_supplier(spName, contactName, tel1, tel2, address, remark) values('供应商9','李9四','15088888888','0755-3333333','火星9号','9星级供应商');
+
+#custom
+insert into tb_custom(customName, contactName, tel1, tel2, address, remark) values('顾客0','张0三','15088888888','0755-3333333','金城0号','0星级客户');
+insert into tb_custom(customName, contactName, tel1, tel2, address, remark) values('顾客1','张1三','15088888888','0755-3333333','金城1号','1星级客户');
+insert into tb_custom(customName, contactName, tel1, tel2, address, remark) values('顾客2','张2三','15088888888','0755-3333333','金城2号','2星级客户');
+insert into tb_custom(customName, contactName, tel1, tel2, address, remark) values('顾客3','张3三','15088888888','0755-3333333','金城3号','3星级客户');
+insert into tb_custom(customName, contactName, tel1, tel2, address, remark) values('顾客4','张4三','15088888888','0755-3333333','金城4号','4星级客户');
+insert into tb_custom(customName, contactName, tel1, tel2, address, remark) values('顾客5','张5三','15088888888','0755-3333333','金城5号','5星级客户');
+insert into tb_custom(customName, contactName, tel1, tel2, address, remark) values('顾客6','张6三','15088888888','0755-3333333','金城6号','6星级客户');
+insert into tb_custom(customName, contactName, tel1, tel2, address, remark) values('顾客7','张7三','15088888888','0755-3333333','金城7号','7星级客户');
+insert into tb_custom(customName, contactName, tel1, tel2, address, remark) values('顾客8','张8三','15088888888','0755-3333333','金城8号','8星级客户');
+insert into tb_custom(customName, contactName, tel1, tel2, address, remark) values('顾客9','张9三','15088888888','0755-3333333','金城9号','9星级客户');
+
+#category
+insert into tb_category(categoryName, remark) values('食品','饮料');
+insert into tb_category(categoryName, remark) values('衣服','上衣');
+insert into tb_category(categoryName, remark) values('数码','电脑');
+insert into tb_category(categoryName, remark) values('办公','签字笔');
+insert into tb_category(categoryName, remark) values('其他','空调');
+
+insert into tb_commodity(commodityName,categoryId,unit,quantity,remark) values('苹果',1,'kg',100,'数量为剩余数量');
+insert into tb_commodity(commodityName,categoryId,unit,quantity,remark) values('T恤','2','件',1000,'数量为剩余数量');
+insert into tb_commodity(commodityName,categoryId,unit,quantity,remark) values('计算机','3','台',200,'数量为剩余数量');
+insert into tb_commodity(commodityName,categoryId,unit,quantity,remark) values('笔记本','4','本',1000,'数量为剩余数量');
+insert into tb_commodity(commodityName,categoryId,unit,quantity,remark) values('篮球','5','个',50,'数量为剩余数量');
+
+insert into tb_purchase(commodityId,spId,price,quantity,unit,purDate,remark) values(1,1,5,200,'元/kg','2021-10-1','日期为进货日期');
+insert into tb_purchase(commodityId,spId,price,quantity,unit,purDate,remark) values(1,2,6,300,'元/kg','2021-10-1','日期为进货日期');
+insert into tb_purchase(commodityId,spId,price,quantity,unit,purDate,remark) values(2,3,90,200,'元/件','2021-9-1','日期为进货日期');
+insert into tb_purchase(commodityId,spId,price,quantity,unit,purDate,remark) values(2,4,80,200,'元/件','2021-9-1','日期为进货日期');
+insert into tb_purchase(commodityId,spId,price,quantity,unit,purDate,remark) values(3,5,5000,500,'元/台','2021-8-1','日期为进货日期');
+insert into tb_purchase(commodityId,spId,price,quantity,unit,purDate,remark) values(3,6,6000,300,'元/台','2021-8-1','日期为进货日期');
+insert into tb_purchase(commodityId,spId,price,quantity,unit,purDate,remark) values(4,7,4,200,'元/本','2021-8-1','日期为进货日期');
+insert into tb_purchase(commodityId,spId,price,quantity,unit,purDate,remark) values(4,8,3,200,'元/本','2021-10-1','日期为进货日期');
+insert into tb_purchase(commodityId,spId,price,quantity,unit,purDate,remark) values(5,9,300,200,'元/个','2021-10-1','日期为进货日期');
+insert into tb_purchase(commodityId,spId,price,quantity,unit,purDate,remark) values(5,10,270,100,'元/个','2021-10-1','日期为进货日期');
+
+insert into tb_sale(commodityId,spId,customId,price,quantity,unit,saleDate,remark) values(1,1,1,6,50,'元/kg','2021-12-1','日期为销售日期');
+insert into tb_sale(commodityId,spId,customId,price,quantity,unit,saleDate,remark) values(1,2,2,7,30,'元/kg','2021-12-3','日期为销售日期');
+insert into tb_sale(commodityId,spId,customId,price,quantity,unit,saleDate,remark) values(2,3,3,100,50,'元/件','2021-11-30','日期为销售日期');
+insert into tb_sale(commodityId,spId,customId,price,quantity,unit,saleDate,remark) values(2,4,4,95,50,'元/件','2021-10-30','日期为销售日期');
+insert into tb_sale(commodityId,spId,customId,price,quantity,unit,saleDate,remark) values(3,5,5,6000,10,'元/台','2021-12-10','日期为销售日期');
+insert into tb_sale(commodityId,spId,customId,price,quantity,unit,saleDate,remark) values(3,6,6,8000,10,'元/台','2021-12-30','日期为销售日期');
+insert into tb_sale(commodityId,spId,customId,price,quantity,unit,saleDate,remark) values(3,5,7,7500,70,'元/台','2021-12-30','日期为销售日期');
+insert into tb_sale(commodityId,spId,customId,price,quantity,unit,saleDate,remark) values(4,7,8,6,10,'元/本','2021-12-30','日期为销售日期');
+insert into tb_sale(commodityId,spId,customId,price,quantity,unit,saleDate,remark) values(4,8,8,4,10,'元/本','2021-12-30','日期为销售日期');
+insert into tb_sale(commodityId,spId,customId,price,quantity,unit,saleDate,remark) values(5,9,9,350,10,'元/个','2021-12-9','日期为销售日期');
+insert into tb_sale(commodityId,spId,customId,price,quantity,unit,saleDate,remark) values(5,10,10,300,20,'元/个','2021-12-23','日期为销售日期');
+
+
