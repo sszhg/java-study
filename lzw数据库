@@ -1,4 +1,3 @@
-
 drop database db_lzw;
 create database if not exists db_lzw default character set utf8mb4 collate utf8mb4_bin;
 create database if not exists db_lzw default character set utf8mb4;
@@ -14,7 +13,7 @@ primary key(usrId)
 )default charset=utf8mb4;
 
 create table tb_supplier(
-spId int unsigned auto_increment,
+spId int auto_increment,
 spName varchar(200),
 contactName varchar(32),
 tel1 varchar(20),
@@ -48,6 +47,7 @@ commodityId int auto_increment primary key,
 commodityName varchar(200),
 categoryId int,
 quantity int,
+unit varchar(20),
 remark varchar(200),
 foreign key(categoryId) references tb_category(categoryId) 
 ON DELETE RESTRICT ON UPDATE CASCADE
@@ -57,8 +57,9 @@ create table tb_purchase(
 purId int auto_increment primary key,
 commodityId int,
 spId int,
-price float,
 quantity int,
+price float,
+unit varchar(20),
 purDate datetime,
 remark varchar(200),
 foreign key(commodityId) references tb_commodity(commodityId) 
@@ -69,9 +70,11 @@ ON DELETE RESTRICT ON UPDATE CASCADE
 create table tb_sale(
 saleId int auto_increment primary key,
 commodityId int,
+spId int,
 customId int,
 price float,
 quantity int,
+unit varchar(20),
 saleDate datetime,
 remark varchar(200),
 foreign key(commodityId) references tb_commodity(commodityId)
@@ -85,7 +88,33 @@ references tb_custom(customId)
 on delete restrict
 on update cascade;
 
+alter table tb_sale
+add constraint sptocustom
+foreign key(spId)
+references tb_supplier(spId)
+on delete restrict
+on update cascade;
+
 drop table tb_commodity;
+drop table tb_supplier;
 drop table tb_purchase;
 drop table tb_sale;
 drop table tb_custom;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
